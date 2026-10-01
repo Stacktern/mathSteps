@@ -9,7 +9,7 @@ implementing that interface and dropping a file in
 ## Quickstart
 
 ```bash
-git clone https://github.com/OWNER/mathsteps.git   # replace with the repository URL
+git clone https://github.com/Stacktern/mathSteps.git
 cd mathsteps
 python -m venv .venv
 # Windows: .venv\Scripts\activate     macOS / Linux: source .venv/bin/activate

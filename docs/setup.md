@@ -22,7 +22,7 @@ That's it! You now have:
 
 ```bash
 # Clone the repository
-git clone <repository-url>
+git clone https://github.com/Stacktern/mathSteps.git
 cd mathsteps
 
 # Create virtual environment
@@ -237,7 +237,7 @@ After successful installation:
 
 - **API Documentation**: See [python-guide.md](python-guide.md)
 - **CLI Help**: `mathsteps --help` or `mathsteps <command> --help`
-- **Issues**: open an issue on the project's GitHub repository
+- **Issues**: [GitHub Issues](https://github.com/Stacktern/mathSteps/issues)
 - **Examples**: `examples/` (JSON) and `examples_python/` (Python scripts)
 
 ## System Requirements

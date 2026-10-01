@@ -42,9 +42,11 @@ dependencies = [
 [project.optional-dependencies]
 dev = ["pytest>=7.4", "build>=1.0", "twine>=5.0"]
 
-# TODO(before publishing): add [project.urls] with the real Homepage / Repository /
-# Issues / Changelog links once the GitHub repository exists. Do not publish
-# placeholder URLs.
+[project.urls]
+Homepage = "https://github.com/Stacktern/mathSteps"
+Repository = "https://github.com/Stacktern/mathSteps"
+Issues = "https://github.com/Stacktern/mathSteps/issues"
+Changelog = "https://github.com/Stacktern/mathSteps/blob/main/CHANGELOG.md"
 
 [project.scripts]
 mathsteps = "mathsteps.cli:app"
