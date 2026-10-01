@@ -1,0 +1,5 @@
+{
+  "type": "interpolation",
+  "method": "newton_divided_differences",
+  "points": [[0, 1], [1, 2], [2, 5], [3, 10]]
+}

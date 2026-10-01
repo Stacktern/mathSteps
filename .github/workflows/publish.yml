@@ -1,0 +1,70 @@
+name: Publish
+
+# Branch model
+#   dev      integration branch; every push is tested by ci.yml
+#   staging  release candidate; every push is published to TestPyPI as a dry run
+#   main     released code; a GitHub Release (a version tag) publishes to PyPI
+#
+# Uses PyPI "trusted publishing" (OpenID Connect), so no API token is stored in
+# the repository. Before the first run, add a trusted publisher on test.pypi.org
+# and pypi.org for this repository, workflow file "publish.yml", with the
+# environment names "testpypi" and "pypi" below. See docs/RELEASING.md.
+on:
+  push:
+    branches: [staging]
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      repository:
+        description: "Where to publish"
+        type: choice
+        options: [testpypi, pypi]
+        default: testpypi
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install build twine
+      - run: python -m build
+      - run: python -m twine check dist/*
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+  publish-testpypi:
+    if: github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.repository == 'testpypi')
+    needs: build
+    runs-on: ubuntu-latest
+    environment: testpypi
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+      - uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          repository-url: https://test.pypi.org/legacy/
+          skip-existing: true
+
+  publish-pypi:
+    if: github.event_name == 'release' || (github.event_name == 'workflow_dispatch' && inputs.repository == 'pypi')
+    needs: build
+    runs-on: ubuntu-latest
+    environment: pypi
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+      - uses: pypa/gh-action-pypi-publish@release/v1

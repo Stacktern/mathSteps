@@ -1,0 +1,15 @@
+{
+  "type": "bvp",
+  "method": "shooting",
+  "f_expr": "sin(x) - y",
+  "variable": "x",
+  "y_left": 0.0,
+  "y_right": 0.0,
+  "x0": 0.0,
+  "x_end": 1.0,
+  "h": 0.01,
+  "s0": 0.0,
+  "s1": 1.0,
+  "tol": 1e-6,
+  "max_iter": 30
+}

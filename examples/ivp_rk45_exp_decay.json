@@ -1,0 +1,12 @@
+{
+  "type": "ivp",
+  "method": "rk45",
+  "f_expr": "-2*x*y",
+  "function": "y",
+  "variable": "x",
+  "y0": 1.0,
+  "x0": 0.0,
+  "x_end": 2.0,
+  "atol": 1e-9,
+  "rtol": 1e-9
+}

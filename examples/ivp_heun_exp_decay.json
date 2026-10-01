@@ -1,0 +1,11 @@
+{
+  "type": "ivp",
+  "method": "heun",
+  "f_expr": "-2*x*y",
+  "function": "y",
+  "variable": "x",
+  "y0": 1.0,
+  "x0": 0.0,
+  "x_end": 2.0,
+  "h": 0.1
+}

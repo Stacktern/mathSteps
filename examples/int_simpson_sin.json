@@ -1,0 +1,9 @@
+{
+  "type": "numerical_integration",
+  "function": "sin(x)",
+  "variable": "x",
+  "a": 0,
+  "b": 3.141592653589793,
+  "n": 100,
+  "method": "simpson"
+}

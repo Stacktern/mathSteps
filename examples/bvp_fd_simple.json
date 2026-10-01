@@ -1,0 +1,13 @@
+{
+  "type": "bvp",
+  "method": "finite_difference",
+  "p_expr": "0",
+  "q_expr": "1",
+  "r_expr": "x",
+  "variable": "x",
+  "a": 0.0,
+  "b": 1.0,
+  "alpha": 0.0,
+  "beta": 1.0,
+  "n": 10
+}
