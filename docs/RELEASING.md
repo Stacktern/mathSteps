@@ -4,7 +4,7 @@
 
 | Branch | Purpose | What runs |
 |---|---|---|
-| `dev` | Integration. Feature branches are merged here. | CI (tests on Linux / Windows / macOS, Python 3.10-3.13, plus the oldest supported dependencies) |
+| `dev` | Integration. Feature branches are merged here. | CI (tests on Linux for Python 3.10-3.13, Windows and macOS for 3.12, plus the oldest supported dependencies) |
 | `staging` | Release candidate. Merge `dev` here when it is ready to ship. | CI, then a dry-run publish to **TestPyPI** |
 | `main` | Released code only. Merge `staging` here once the TestPyPI build checks out. | CI; a GitHub Release on `main` publishes to **PyPI** |
 

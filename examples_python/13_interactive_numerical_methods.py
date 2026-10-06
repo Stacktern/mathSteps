@@ -190,7 +190,8 @@ def interactive_differentiation():
         if show_convergence == 'y':
             print(f"\nAccuracy vs step size:")
             h_values = [h * 10, h, h / 10, h / 100]
-            print(f"{'h':<15} {'f\'({x:.3f})':<18} {'Error':<15}")
+            derivative_label = f"f'({x:.3f})"
+            print(f"{'h':<15} {derivative_label:<18} {'Error':<15}")
             print("-" * 48)
             
             try:
