@@ -166,9 +166,12 @@ def verify_ivp_against_scipy(
         lambda xv, yv: f(xv, yv),
         t_span=(x0, x_end),
         y0=y0_arr,
-        method="RK45",
-        rtol=1e-9,
-        atol=1e-12,
+        # The reference must be far more accurate than anything it judges: RK45 at
+        # rtol=1e-9 drifts by ~5e-8 over a long run (e.g. predator-prey to t=40),
+        # which is larger than a good RK4 answer's own error and caused false FAILs.
+        method="DOP853",
+        rtol=1e-13,
+        atol=1e-14,
     )
     if not sol.success:
         return False

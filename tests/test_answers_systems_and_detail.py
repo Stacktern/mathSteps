@@ -148,6 +148,15 @@ def test_lotka_volterra_predator_prey_system_matches_scipy():
     assert r.answer == pytest.approx(ref, rel=1e-6) and r.verified is True
 
 
+def test_long_run_system_is_verified_against_an_accurate_reference():
+    # Regression: verifying against RK45 at rtol=1e-9 drifts ~5e-8 over this run, which is
+    # larger than RK4's own (2.8e-9) error, so a correct answer was reported as FAIL.
+    rhs = ["1.1*u - 0.4*u*w", "0.1*u*w - 0.4*w"]
+    r = mathsteps.ivp(rhs, variable="t", function=["u", "w"], y0=[10, 5], x_end=40, h=0.01)
+    assert r.verified is True
+    assert verify_problem(r.problem, r.answer + 1e-6) is False  # the stricter reference still rejects errors
+
+
 def test_ivp_system_default_names_and_input_validation():
     r = mathsteps.ivp(["y2", "-y1"], y0=[0, 1], x_end=1, h=0.01)
     assert r.details["names"] == ["y1", "y2"]

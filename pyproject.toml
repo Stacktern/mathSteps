@@ -14,8 +14,7 @@ keywords = [
     "math", "step-by-step", "solver", "symbolic", "numerical",
     "linear-algebra", "root-finding", "ode", "bvp", "cli", "education",
 ]
-# TODO(before publishing): set the real author name (and email, if you want it public).
-authors = [{ name = "mathsteps contributors" }]
+authors = [{ name = "Debojit Basak" }, { name = "Tonni Rani Dey" }]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Environment :: Console",
