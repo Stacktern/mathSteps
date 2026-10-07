@@ -246,6 +246,7 @@ See `examples/` for the exact JSON schema of each solver.
 * [docs/python-guide.md](docs/python-guide.md) — using `mathsteps` as a library
 * [docs/features.md](docs/features.md) — every problem type and its parameters
 * [docs/setup.md](docs/setup.md) — installation and troubleshooting
+* [notebooks/mathsteps_showcase.ipynb](notebooks/mathsteps_showcase.ipynb) — a guided tour of every feature (runs on Google Colab)
 * [examples_python/](examples_python/) — runnable scripts
 * [CONTRIBUTING.md](CONTRIBUTING.md) — adding a solver
 
